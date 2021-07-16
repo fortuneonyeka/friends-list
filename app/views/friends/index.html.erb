@@ -1,29 +1,32 @@
+<% if user_signed_in?%>
 <div class="table-responsive">
   <table class=" table table-striped table-hover table-bordered">
     <thead class="table-dark">
+
       <tr>
-        <th>First name</th>
-        <th>Last name</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
         <th>Twitter</th>
-        <th colspan=" 3">
-        </th>
+        <th>User Id</th>
+        <th>Un-friend</th>
       </tr>
     </thead>
 
+
     <tbody class="table-info">
       <% @friends.each do |friend| %>
+      <!-- To have a user see and have access only to his own friends ----->
+      <% if friend.user == current_user%>
       <tr>
-        <td><%= friend.first_name %></td>
-        <td><%= friend.last_name %></td>
+        <td><%= link_to friend.first_name + " " +friend.last_name  , friend %></td>
         <td><%= friend.email %></td>
         <td><%= friend.phone %></td>
         <td><%= friend.twitter %></td>
-        <td><%= link_to 'Show', friend %></td>
-        <td><%= link_to 'Edit', edit_friend_path(friend) %></td>
-        <td><%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= friend.user_id %></td>
+        <td><%= link_to 'Delete', friend, class:"btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <%end%>
       <% end %>
     </tbody>
   </table>
@@ -31,4 +34,16 @@
 
 <br>
 
-<%= link_to 'New Friend', new_friend_path, class:"btn btn-secondary" %>
+
+
+<%else%>
+<p>Welcome to Friends App.</p>
+<p>This is application is for keeping a good record of your friends and their contacts.</p>
+<p>We are currently working on adding more functionalities like:</p>
+<ol>
+  <li>scheduling calls</li>
+  <li>Direct email messaging</li>
+  <li>Social media interactions</li>
+</ol>
+<%end%>
+<%= link_to 'Add New Friend', new_friend_path, class:"btn btn-secondary" %>

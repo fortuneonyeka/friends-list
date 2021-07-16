@@ -3,5 +3,7 @@ class Friend < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :phone, presence: true
+ 
 
+  belongs_to :user
 end

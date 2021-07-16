@@ -3,7 +3,8 @@ class HomeController < ApplicationController
   end
 
   def about
-    
+    @about_us = "Welcome to Friends App."
+   
   end
   
 end

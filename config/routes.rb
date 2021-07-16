@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   resources :friends
   resources :users, only: %i[show create]
-  root "home#index"
+  # root "home#index"
+  root "friends#index"
   get "home/about"
  
 

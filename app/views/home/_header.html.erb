@@ -8,14 +8,16 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "My Friends", friends_path, class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Add Friend", new_friend_path, class: "nav-link" %>
-        </li>
-
+        <!--
+          <li class="nav-item">
+            <%= link_to "My Friends", friends_path, class: "nav-link" %>
+          </li>
+          -->
+        <!--
+          <li class="nav-item">
+            <%= link_to "Add New Friend", new_friend_path, class: "nav-link" %>
+          </li>
+-->
         <li class="nav-item">
           <%= link_to "log out", destroy_user_session_path, method: :DELETE, class: "nav-link" %>
         </li>
@@ -39,10 +41,11 @@
         </li>
 
         <%end%>
-        <li class="nav-item">
-          <%= link_to "About Us", home_about_path, class: "nav-link" %>
-        </li>
-
+        <!--
+          <li class="nav-item">
+            <%= link_to "About Us", home_about_path, class: "nav-link" %>
+          </li>
+-->
 
       </ul>
       <form class="d-flex">
